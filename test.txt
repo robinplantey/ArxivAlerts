@@ -1,0 +1,7 @@
+SHELL=/bin/sh
+ 9 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+10 HOME=/home/robin
+11 LOGNAME=robin
+12 
+13 #period delay   job_identifier  command
+14 7       0   arxivnotif.weekly     cd /home/robin/Documents/Python/arxivnotif && python3 arxivnotif.py
