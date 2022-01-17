@@ -1,0 +1,27 @@
+#!/bin/bash
+
+echo "[Unit]
+Description=Arxiv Alerts
+
+[Service]
+Type=simple
+WorkingDirectory=$PWD
+ExecStart=$PWD/arxivnotif.py
+
+[Install]
+WantedBy=default.target" > $HOME/.config/systemd/user/arxiv-alerts.service
+
+echo "[Unit]
+Description=Arxiv Alerts
+After= network-online.target graphical.target
+
+[Timer]
+Persistent=true
+OnBootSec=10m
+OnCalendar=daily
+Unit=arxiv-alerts.service
+
+[Install]
+WantedBy=timers.target" > $HOME/.config/systemd/user/arxiv-alerts.timer
+
+systemctl --user enable arxiv-alerts.timer
