@@ -106,8 +106,8 @@ for friend in sorted(subscriptions.readlines()):
         <p style = "font-size:85%;"><b>Submitted:</b> </span> {}
         <br><br><br></p></li>'''.format(link,t, auth_list, abst, d)
         
-        #with open(filepath+"lastcheck", "w") as file2:
-            #json.dump(time(), file2)
+        with open(filepath+"lastcheck", "w") as file2:
+            json.dump(time(), file2)
    
     if any(isNew):
         html_body += "</ul><hr>"
